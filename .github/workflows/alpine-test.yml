@@ -48,4 +48,4 @@ jobs:
           cx_tenant: cx_seg # This should be replaced by your tenant for Checkmarx One
           project_name: pzarr_random_tests
           branch: container-disparity
-          additional_params:  --scan-types container-security --container-images "docker.io/library/alpine:3.11.2" -debug
+          additional_params:  --scan-types container-security --container-images "docker.io/library/alpine:3.11.2" --debug
