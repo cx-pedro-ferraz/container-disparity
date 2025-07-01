@@ -48,4 +48,9 @@ jobs:
           cx_tenant: cx_seg # This should be replaced by your tenant for Checkmarx One
           project_name: pzarr_random_tests
           branch: container-disparity
-          additional_params:  --scan-types container-security --container-images "docker.io/library/alpine:3.11.2" --debug
+          additional_params:  --scan-types container-security --container-images "docker.io/library/alpine:3.11.2" --report-format sarif --output-path . --tags ${{ github.event.pull_request.head.sha }},${{ github.sha }} --debug
+      - name: Upload SARIF file
+        uses: github/codeql-action/upload-sarif@v2
+        with:
+          # Path to SARIF file relative to the root of the repository
+          sarif_file: cx_result.sarif
